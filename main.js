@@ -7,7 +7,9 @@ let ibk = {
 };
 
 // Karte initialisieren
-let map = L.map("map").setView([ibk.lat, ibk.lng], 9);
+let map = L.map("map", {
+    fullscreenControl: true,
+}).setView([ibk.lat, ibk.lng], 9);
 
 // WMTS Hintergrundlayer der eGrundkarte Tirol
 let eGrundkarteTirol = {
@@ -93,3 +95,5 @@ var miniMap = new L.Control.MiniMap(gkTirol, {
     toggleDisplay: true, 
 
 }).addTo(map);
+
+//fullscreen
