@@ -74,8 +74,13 @@ pulldown.onchange = function (evt) {
     window.location.href = `https://${evt.target.value}.github.io/biketirol`;
 }
 
-// Instantiate elevation control.
-let controlElevation = L.control.elevation({}).addTo(map);
+// Instantiate elevation control
+const controlElevation = L.control.elevation({
+    theme: "bike-tirol",
+    time: false,
+    elevationDiv: "#profile",
+    heigth: 300,
+}).addTo(map);
 
 
 // Load track from url (allowed data types: "*.geojson", "*.gpx", "*.tcx")
