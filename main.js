@@ -59,7 +59,7 @@ for (let etappe of ETAPPEN) {
     //console.log(etappe);
     //console.log(etappe.user);
     let selected = "";
-    if (etappe.nr == 7) {
+    if (etappe.nr == 10) {
         selected = "selected";
     }
     pulldown.innerHTML += `
@@ -71,5 +71,14 @@ for (let etappe of ETAPPEN) {
 //auf Wechsel in Pulldown reagieren
 pulldown.onchange = function (evt) {
     console.log(evt.target.value);
-    window.location.href =`https://${evt.target.value}.github.io/biketirol`;
+    window.location.href = `https://${evt.target.value}.github.io/biketirol`;
 }
+
+// Instantiate elevation control.
+let controlElevation = L.control.elevation({}).addTo(map);
+
+
+// Load track from url (allowed data types: "*.geojson", "*.gpx", "*.tcx")
+controlElevation.load("data/etappe10.gpx");
+
+
