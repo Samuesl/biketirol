@@ -80,10 +80,16 @@ const controlElevation = L.control.elevation({
     time: false,
     elevationDiv: "#profile",
     heigth: 300,
+    //slope: true,
 }).addTo(map);
 
 
 // Load track from url (allowed data types: "*.geojson", "*.gpx", "*.tcx")
 controlElevation.load("data/etappe10.gpx");
 
+//Minnimap
+var gkTirol = new L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png");
+var miniMap = new L.Control.MiniMap(gkTirol, {
+    toggleDisplay: true, 
 
+}).addTo(map);
