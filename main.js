@@ -58,8 +58,18 @@ console.log(pulldown);
 for (let etappe of ETAPPEN) {
     //console.log(etappe);
     //console.log(etappe.user);
+    let selected = "";
+    if (etappe.nr == 7) {
+        selected = "selected";
+    }
     pulldown.innerHTML += `
-    <option value="${etappe.user}"> Etappe ${etappe.nr}: ${etappe.titel}</option>
+    <option ${selected} value="${etappe.user}"> Etappe ${etappe.nr}: ${etappe.titel}</option>
     `;
 
+}
+
+//auf Wechsel in Pulldown reagieren
+pulldown.onchange = function (evt) {
+    console.log(evt.target.value);
+    window.location.href =`https://${evt.target.value}.github.io/biketirol`;
 }
